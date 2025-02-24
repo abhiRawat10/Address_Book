@@ -4,13 +4,8 @@ A simple **Address Book System** built using **C# and .NET 6**, allowing users t
 
 ---
 
-## Features to be added
--  Add new contacts  
--  View all contacts  
--  Update contact details  
--  Delete contacts  
--  Search contacts by name  
--  Store contacts in a file or database  
+## Features added in this branch
+ - ability to add contact to address book.
 
 - 
 ##  Technologies Used
