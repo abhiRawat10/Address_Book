@@ -11,10 +11,50 @@ namespace AddressBook
             Console.WriteLine("Welcome to Address Book system...");
             AddressBook = new List<Contact>();
 
-            //adding new contact
-            Contact contact1 = new Contact("John", "Doe", "123 Main ", "Springfield", "NY", "62701", "217-555-1234", "john@gmai.com");
-            AddressBook.add(contact1);
-            Console.WriteLine("new contact added");
+            Console.WriteLine("Press 1 to exit \n press 2 to add new contact ");
+            switch(Console.ReadLine())
+            {
+                case "1":
+                    return;
+                case "2":
+                    add();
+                    break;
+
+                default:
+                    Console.WriteLine("Invalid input");
+                    break;
+            }
+            
+        }
+
+        //method to add new contact
+        static public void add()
+        {
+            Console.WriteLine("Enter first name");
+            string firstName = Console.ReadLine();
+
+            Console.WriteLine("Enter last name");
+            string lastName = Console.ReadLine();
+
+            Console.WriteLine("Enter address");
+            string address = Console.ReadLine();
+
+            Console.WriteLine("Enter city");
+            string city = Console.ReadLine();
+
+            Console.WriteLine("Enter state");
+            string state = Console.ReadLine();
+
+            Console.WriteLine("Enter zip");
+            string zip = Console.ReadLine();
+
+            Console.WriteLine("Enter phone");
+            string phone = Console.ReadLine();
+
+            Console.WriteLine("Enter email");
+            string email = Console.ReadLine();
+
+            AddressBook.Add(new Contact(firstName, lastName, address, city, state, zip, phone, email));
         }
     }
 

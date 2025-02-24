@@ -5,7 +5,7 @@ A simple **Address Book System** built using **C# and .NET 6**, allowing users t
 ---
 
 ## Features added in this branch
- - ability to add contact to address book.
+ - ability to add contact from the console to address book.
 
 - 
 ##  Technologies Used
