@@ -56,6 +56,32 @@ namespace AddressBook
 
             AddressBook.Add(new Contact(firstName, lastName, address, city, state, zip, phone, email));
         }
+
+        public static void edit(string name)
+        {
+            foreach (Contact contact in AddressBook)
+            {
+                if (contact.FirstName == name)
+                {
+                    Console.WriteLine("Enter new first name");
+                    contact.FirstName = Console.ReadLine();
+                    Console.WriteLine("Enter new last name");
+                    contact.LastName = Console.ReadLine();
+                    Console.WriteLine("Enter new address");
+                    contact.Address = Console.ReadLine();
+                    Console.WriteLine("Enter new city");
+                    contact.City = Console.ReadLine();
+                    Console.WriteLine("Enter new state");
+                    contact.State = Console.ReadLine();
+                    Console.WriteLine("Enter new zip");
+                    contact.Zip = Console.ReadLine();
+                    Console.WriteLine("Enter new phone");
+                    contact.PhoneNumber = Console.ReadLine();
+                    Console.WriteLine("Enter new email");
+                    contact.Email = Console.ReadLine();
+                }
+            }
+        }
     }
 
 }
