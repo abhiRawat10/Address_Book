@@ -58,29 +58,4 @@ namespace AddressBook
         }
     }
 
-    internal class Contact
-    {
-
-        string firstName { get; set; }
-        string lastName { get; set; }
-        string address { get; set; }
-        string city { get; set; }
-        string state { get; set; }
-        string zip { get; set; }
-        string phone { get; set; }
-        string email { get; set; }
-
-        public Contact(string firstName, string lastName, string address, string city, string state, string zip, string phone, string email)
-        {
-            this.firstName = firstName;
-            this.lastName = lastName;
-            this.address = address;
-            this.city = city;
-            this.state = state;
-            this.zip = zip;
-            this.phone = phone;
-            this.email = email;
-        }
-    }
-
 }
