@@ -11,20 +11,31 @@ namespace AddressBook
             Console.WriteLine("Welcome to Address Book system...");
             AddressBook = new List<Contact>();
 
-            Console.WriteLine("Press 1 to exit \n press 2 to add new contact ");
-            switch(Console.ReadLine())
-            {
-                case "1":
-                    return;
-                case "2":
-                    add();
-                    break;
 
-                default:
-                    Console.WriteLine("Invalid input");
-                    break;
+            while (true)
+            {
+                Console.WriteLine("Press 1 to exit \n press 2 to add new contact ");
+                Console.WriteLine("Press 3 to edit contact");
+
+                switch (Console.ReadLine())
+                {
+                    case "1":
+                        return;
+                    case "2":
+                        add();
+                        break;
+
+                    case "3":
+                        Console.WriteLine("Enter the first name of the contact you want to edit");
+                        edit(Console.ReadLine());
+                        break;
+
+                    default:
+                        Console.WriteLine("Invalid input");
+                        break;
+                }
             }
-            
+
         }
 
         //method to add new contact
