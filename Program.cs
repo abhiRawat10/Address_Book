@@ -11,18 +11,34 @@ namespace AddressBook
             Console.WriteLine("Welcome to Address Book system...");
             AddressBook = new List<Contact>();
 
-            Console.WriteLine("Press 1 to exit \n press 2 to add new contact ");
-            switch(Console.ReadLine())
+            
+            while (true)
             {
-                case "1":
-                    return;
-                case "2":
-                    add();
-                    break;
+                Console.WriteLine("Press 1 to exit \n press 2 to add new contact ");
+                Console.WriteLine("Press 3 to edit contact \n press 4 to delete contact");
 
-                default:
-                    Console.WriteLine("Invalid input");
-                    break;
+                switch (Console.ReadLine())
+                {
+                    case "1":
+                        return;
+                    case "2":
+                        add();
+                        break;
+
+                    case "3":
+                        Console.WriteLine("Enter the first name of the contact you want to edit");
+                        edit(Console.ReadLine());
+                        break;
+
+                    case "4":
+                        Console.WriteLine("Enter the first name of the contact you want to delete");
+                        delete(Console.ReadLine());
+                        break;
+
+                    default:
+                        Console.WriteLine("Invalid input");
+                        break;
+                }
             }
             
         }
@@ -79,6 +95,17 @@ namespace AddressBook
                     contact.PhoneNumber = Console.ReadLine();
                     Console.WriteLine("Enter new email");
                     contact.Email = Console.ReadLine();
+                }
+            }
+        }
+        public static void delete(string name)
+        {
+            foreach (Contact contact in AddressBook)
+            {
+                if (contact.FirstName == name)
+                {
+                    AddressBook.Remove(contact);
+                    break;
                 }
             }
         }
