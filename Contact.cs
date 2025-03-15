@@ -1,4 +1,4 @@
-namespace AddressBook
+namespace AddressBookSystem
 {
 
     public class Contact
