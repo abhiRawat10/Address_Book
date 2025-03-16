@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace AddressBookSystem
 {
@@ -9,17 +10,24 @@ namespace AddressBookSystem
         List<Contact> Book;
         public AddressBook()
         {
-            Book = new List<Contact>();
+            this.Book = new List<Contact>();
         }
-    
 
-        public void add()
+
+        public void Add()
         {
             Console.WriteLine("Enter first name");
             string firstName = Console.ReadLine();
 
             Console.WriteLine("Enter last name");
             string lastName = Console.ReadLine();
+
+            if (Book.Any(c => c.FirstName.Equals(firstName, StringComparison.OrdinalIgnoreCase) &&
+                              c.LastName.Equals(lastName, StringComparison.OrdinalIgnoreCase)))
+            {
+                Console.WriteLine("Duplicate entry! A contact with this name already exists.");
+                return;
+            }
 
             Console.WriteLine("Enter address");
             string address = Console.ReadLine();
@@ -39,12 +47,14 @@ namespace AddressBookSystem
             Console.WriteLine("Enter email");
             string email = Console.ReadLine();
 
-            Book.Add(new Contact(firstName, lastName, address, city, state, zip, phone, email));
-        }   
+            this.Book.Add(new Contact(firstName, lastName, address, city, state, zip, phone, email));
+            Console.WriteLine("Contact added successfully.");
+        }
 
-        public static void edit(string name)
+
+        public void edit(string name)
         {
-            foreach (Contact contact in Book)
+            foreach (Contact contact in this.Book)
             {
                 if (contact.FirstName == name)
                 {
@@ -61,21 +71,35 @@ namespace AddressBookSystem
                     Console.WriteLine("Enter new zip");
                     contact.Zip = Console.ReadLine();
                     Console.WriteLine("Enter new phone");
-                    contact.PhoneNumber = Console.ReadLine();
+                    contact.Phone = Console.ReadLine();
                     Console.WriteLine("Enter new email");
                     contact.Email = Console.ReadLine();
                 }
             }
         }
-        public static void delete(string name)
+        public void delete(string name)
         {
-            foreach (Contact contact in Book)
+            foreach (Contact contact in this.Book)
             {
                 if (contact.FirstName == name)
                 {
-                    Book.Remove(contact);
+                    this.Book.Remove(contact);
                     break;
                 }
+            }
+        }
+        public void display()
+        {
+            foreach (Contact contact in this.Book)
+            {
+                Console.WriteLine("First name: " + contact.FirstName);
+                Console.WriteLine("Last name: " + contact.LastName);
+                Console.WriteLine("Address: " + contact.Address);
+                Console.WriteLine("City: " + contact.City);
+                Console.WriteLine("State: " + contact.State);
+                Console.WriteLine("Zip: " + contact.Zip);
+                Console.WriteLine("Phone: " + contact.Phone);
+                Console.WriteLine("Email: " + contact.Email);
             }
         }
     }

@@ -4,7 +4,7 @@ namespace AddressBookSystem
 {
     internal class Program
     {
-        Dictionary<string, AddressBook> addressBook = new Dictionary<string, AddressBook>();
+        static Dictionary<string, AddressBook> addressBook = new Dictionary<string, AddressBook>();
 
         static void Main(string[] args)
         {
@@ -25,9 +25,10 @@ namespace AddressBookSystem
                 switch (choice)
                 {
                     case 1:
+                        DisplayAllAddressBooks();
                         Console.WriteLine("Enter the name of the address book");
                         string name = Console.ReadLine();
-                        AddressBookSystem.Add(name, new AddressBook());
+                        addressBook.Add(name, new AddressBook());
                         break;
 
                     case 2:
@@ -36,7 +37,7 @@ namespace AddressBookSystem
                         string addressBookName = Console.ReadLine();
                         if (addressBook.ContainsKey(addressBookName))
                         {
-                            addressBook[addressBookName].add();
+                            addressBook[addressBookName].Add();
                         }
                         else
                         {
@@ -90,6 +91,13 @@ namespace AddressBookSystem
                         }
                         break;
 
+                    case 6:
+                        return;
+
+                    default:
+                        Console.WriteLine("Invalid choice");
+                        break;
+
 
 
                 }
@@ -99,9 +107,9 @@ namespace AddressBookSystem
 
         public static void DisplayAllAddressBooks()
         {
-            foreach (var addressBook in addressBook)
+            foreach (var adb in addressBook)
             {
-                Console.WriteLine(addressBook.Key);
+                Console.WriteLine(adb.Key);
             }
         }
 
