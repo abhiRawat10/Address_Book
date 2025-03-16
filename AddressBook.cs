@@ -48,6 +48,28 @@ namespace AddressBookSystem
             string email = Console.ReadLine();
 
             this.Book.Add(new Contact(firstName, lastName, address, city, state, zip, phone, email));
+
+
+            //adding to city dictionary
+            if (Program.cityDictionary.ContainsKey(city))
+            {
+                Program.cityDictionary[city].Add(new Contact(firstName, lastName, address, city, state, zip, phone, email));
+            }
+            else
+            {
+                Program.cityDictionary.Add(city, new List<Contact> { new Contact(firstName, lastName, address, city, state, zip, phone, email) });
+            }
+
+            //adding to state dictionary
+            if (Program.stateDictionary.containsKey(state))
+            {
+                Program.stateDictionary[state].Add(new Contact(firstName, lastName, address, city, state, zip, phone, email));
+            }
+            else
+            {
+                Program.stateDictionary.Add(state, new List<Contact> { new Contact(firstName, lastName, address, city, state, zip, phone, email) });
+
+            }
             Console.WriteLine("Contact added successfully.");
         }
 

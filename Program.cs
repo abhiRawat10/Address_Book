@@ -5,6 +5,10 @@ namespace AddressBookSystem
     internal class Program
     {
         static Dictionary<string, AddressBook> addressBook = new Dictionary<string, AddressBook>();
+<
+        static Dictionary>string,Contact> cityDictionary = new Dictionary<string, List<Contact>>();
+
+        static Dictionary<string, Contact> stateDictionary = new Dictionary<string,List<Contact>>();
 
         static void Main(string[] args)
         {
@@ -41,6 +45,7 @@ namespace AddressBookSystem
                         if (addressBook.ContainsKey(addressBookName))
                         {
                             addressBook[addressBookName].Add();
+
                         }
                         else
                         {
@@ -166,7 +171,22 @@ namespace AddressBookSystem
             }
         }
 
-        //method to add new contact
+        public static void DisplayByCity()
+        {
+            foreach (var city in cityDictionary)
+            {
+                Console.WriteLine(city.Key);
+            }
+        }
+
+        public static void DisplayByState()
+        {
+            foreach (var state in stateDictionary)
+            {
+                Console.WriteLine(state.Key);
+            }
+        }
+
     }
 
 }
