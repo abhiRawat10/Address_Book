@@ -173,9 +173,10 @@ namespace AddressBookSystem
 
                     case 10:
                         Console.WriteLine("Enter city");
-                        if(cityDictionary.ContainsKey(city))
+                        string cityy = Console.ReadLine();
+                        if (cityDictionary.ContainsKey(cityy))
                         {
-                            Console.WriteLine(cityDictionary[city].Count);
+                            Console.WriteLine(cityDictionary[cityy].Count);
                         }
                         else
                         {
@@ -185,9 +186,10 @@ namespace AddressBookSystem
 
                     case 11:
                         Console.WriteLine("Enter state");
-                        if (stateDictionary.ContainsKey(city))
+                        string statee = Console.ReadLine();
+                        if (stateDictionary.ContainsKey(statee))
                         {
-                            Console.WriteLine(stateDictionary[city].Count);
+                            Console.WriteLine(stateDictionary[statee].Count);
                         }
                         else
                         {
