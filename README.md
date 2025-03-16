@@ -5,7 +5,8 @@ A simple **Address Book System** built using **C# and .NET 6**, allowing users t
 ---
 
 ## Features added in this branch
- - Functionality to know how many contacts belongs to a particular city or state.
+ - Ability to sort entries in addressbooks by person's Name alphabetically.
+	
 ##  Technologies Used
 - **.NET 6**
 - **C#**

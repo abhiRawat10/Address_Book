@@ -31,6 +31,7 @@ namespace AddressBookSystem
                 Console.WriteLine("9. To view by state");
                 Console.WriteLine("10. To count no. of contacts in a city");
                 Console.WriteLine("11. To count no. of contacts in a state");
+                Console.WriteLine("12. To sort and print a address book sorted by contact names alphabetically");
 
                 Console.WriteLine("Enter your choice");
                 int choice = Convert.ToInt32(Console.ReadLine());
@@ -197,6 +198,23 @@ namespace AddressBookSystem
                         }
                         break;
 
+
+                    case 12:
+                        DisplayAllAddressBooks();
+                        Console.WriteLine("Enter the name of the address book");
+                        string addressBookName4 = Console.ReadLine();
+                        if (addressBook.ContainsKey(addressBookName4))
+                        {
+                            addressBook[addressBookName4].Book.Sort((contact1, contact2) =>
+    contact1.FirstName.CompareTo(contact2.FirstName));
+                            addressBook[addressBookName4].display();
+
+                        }
+                        else
+                        {
+                            Console.WriteLine("Address book not found");
+                        }
+                        break;
 
                     default:
                         Console.WriteLine("Invalid choice");
