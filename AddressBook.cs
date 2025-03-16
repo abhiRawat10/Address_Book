@@ -61,7 +61,7 @@ namespace AddressBookSystem
             }
 
             //adding to state dictionary
-            if (Program.stateDictionary.containsKey(state))
+            if (Program.stateDictionary.ContainsKey(state))
             {
                 Program.stateDictionary[state].Add(new Contact(firstName, lastName, address, city, state, zip, phone, email));
             }

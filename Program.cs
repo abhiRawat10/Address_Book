@@ -5,10 +5,11 @@ namespace AddressBookSystem
     internal class Program
     {
         static Dictionary<string, AddressBook> addressBook = new Dictionary<string, AddressBook>();
-<
-        static Dictionary>string,Contact> cityDictionary = new Dictionary<string, List<Contact>>();
 
-        static Dictionary<string, Contact> stateDictionary = new Dictionary<string,List<Contact>>();
+        internal static Dictionary<string, List<Contact>> cityDictionary = new Dictionary<string, List<Contact>>();
+
+        internal static Dictionary<string, List<Contact>> stateDictionary = new Dictionary<string, List<Contact>>();
+
 
         static void Main(string[] args)
         {
@@ -26,15 +27,22 @@ namespace AddressBookSystem
                 Console.WriteLine("5. Display Contacts");
                 Console.WriteLine("6. To Search in a particular city");
                 Console.WriteLine("7. To Search in a particular state");
-                
+                Console.WriteLine("8. To view by city");
+                Console.WriteLine("9. To view by state");
+
                 Console.WriteLine("Enter your choice");
                 int choice = Convert.ToInt32(Console.ReadLine());
                 switch (choice)
                 {
                     case 1:
                         DisplayAllAddressBooks();
-                        Console.WriteLine("Enter the name of the address book");
+                        Console.WriteLine("Enter the unique name of the address book");
                         string name = Console.ReadLine();
+                        if(addressBook.ContainsKey(name))
+                        {
+                            Console.WriteLine("Address book already exists");
+                            break;
+                        }
                         addressBook.Add(name, new AddressBook());
                         break;
 
@@ -152,6 +160,16 @@ namespace AddressBookSystem
                             break;
                         }
 
+                    case 8:
+                        DisplayByCity();
+                        
+                        break;
+
+                    case 9:
+                        DisplayByState();
+                        break;
+
+
                     default:
                         Console.WriteLine("Invalid choice");
                         break;
@@ -173,17 +191,35 @@ namespace AddressBookSystem
 
         public static void DisplayByCity()
         {
-            foreach (var city in cityDictionary)
+            Console.WriteLine("Enter city");
+            string city1 = Console.ReadLine();
+            if (cityDictionary.ContainsKey(city1))
             {
-                Console.WriteLine(city.Key);
+                foreach (var contact in cityDictionary[city1])
+                {
+                    Console.WriteLine(contact);
+                }
+            }
+            else
+            {
+                Console.WriteLine("City not found");
             }
         }
 
         public static void DisplayByState()
         {
-            foreach (var state in stateDictionary)
+            Console.WriteLine("Enter state");
+            string state1 = Console.ReadLine();
+            if (stateDictionary.ContainsKey(state1))
             {
-                Console.WriteLine(state.Key);
+                foreach (var contact in stateDictionary[state1])
+                {
+                    Console.WriteLine(contact);
+                }
+            }
+            else
+            {
+                Console.WriteLine("State not found");
             }
         }
 
