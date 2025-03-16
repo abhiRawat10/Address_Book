@@ -33,6 +33,12 @@ namespace AddressBookSystem
                 Console.WriteLine("11. To count no. of contacts in a state");
                 Console.WriteLine("12. To sort and print a address book sorted by contact names alphabetically");
 
+                Console.WriteLine("13. To Sort an address book acc to contact's state ");
+
+                Console.WriteLine("14. To sort an address book acc to contacts zip");
+
+                Console.WriteLine("15. To sort an address book acc to city");
+
                 Console.WriteLine("Enter your choice");
                 int choice = Convert.ToInt32(Console.ReadLine());
                 switch (choice)
@@ -216,13 +222,65 @@ namespace AddressBookSystem
                         }
                         break;
 
-                    default:
-                        Console.WriteLine("Invalid choice");
+                    case 13:
+                        {
+                            DisplayAllAddressBooks();
+                            Console.WriteLine("Enter the name of the address book");
+                            string addressBookName5 = Console.ReadLine();
+                            if (addressBook.ContainsKey(addressBookName5))
+                            {
+                                addressBook[addressBookName5].Book.Sort((contact1,                  contact2) => contact1.State.CompareTo(contact2.State));
+                                addressBook[addressBookName5].display();
+                            }
+                            else
+                            {
+                                Console.WriteLine("Address book not found");
+                            }
+                            break;
+                        }
+
+                        case 14:
+                        {
+                            DisplayAllAddressBooks();
+                            Console.WriteLine("Enter the name of the address book");
+                            string addressBookName5 = Console.ReadLine();
+                            if (addressBook.ContainsKey(addressBookName5))
+                            {
+                                addressBook[addressBookName5].Book.Sort((contact1,                  contact2) => contact1.Zip.CompareTo(contact2.Zip));
+                                addressBook[addressBookName5].display();
+                            }
+                            else
+                            {
+                                Console.WriteLine("Address book not found");
+                            }
+                        }
                         break;
+
+                        case 15:
+                        {
+                            DisplayAllAddressBooks();
+                            Console.WriteLine("Enter the name of the address book");
+                            string addressBookName5 = Console.ReadLine();
+                            if (addressBook.ContainsKey(addressBookName5))
+                            {
+                                addressBook[addressBookName5].Book.Sort((contact1, contact2) => contact1.City.CompareTo(contact2.City));
+                                addressBook[addressBookName5].display();
+                            }
+                            else
+                            {
+                                Console.WriteLine("Address book not found");
+                            }
+                        }
+                        break;
+
+                        default:
+                            Console.WriteLine("Invalid choice");
+                            break;
 
 
 
                 }
+                Console.WriteLine("\n \n  ");
             }
 
         }

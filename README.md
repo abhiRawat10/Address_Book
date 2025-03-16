@@ -5,7 +5,7 @@ A simple **Address Book System** built using **C# and .NET 6**, allowing users t
 ---
 
 ## Features added in this branch
- - Ability to sort entries in addressbooks by person's Name alphabetically.
+ - Ability to sort entries in addressbooks acc to city state or zip conditionally acc to user input .
 	
 ##  Technologies Used
 - **.NET 6**
