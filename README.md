@@ -5,10 +5,7 @@ A simple **Address Book System** built using **C# and .NET 6**, allowing users t
 ---
 
 ## Features added in this branch
- - Maintaining a ductionary for city and state with their contacts.
- - displaying contacts by city and state.
-
-- 
+ - Functionality to know how many contacts belongs to a particular city or state.
 ##  Technologies Used
 - **.NET 6**
 - **C#**

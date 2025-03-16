@@ -29,6 +29,8 @@ namespace AddressBookSystem
                 Console.WriteLine("7. To Search in a particular state");
                 Console.WriteLine("8. To view by city");
                 Console.WriteLine("9. To view by state");
+                Console.WriteLine("10. To count no. of contacts in a city");
+                Console.WriteLine("11. To count no. of contacts in a state");
 
                 Console.WriteLine("Enter your choice");
                 int choice = Convert.ToInt32(Console.ReadLine());
@@ -167,6 +169,30 @@ namespace AddressBookSystem
 
                     case 9:
                         DisplayByState();
+                        break;
+
+                    case 10:
+                        Console.WriteLine("Enter city");
+                        if(cityDictionary.ContainsKey(city))
+                        {
+                            Console.WriteLine(cityDictionary[city].Count);
+                        }
+                        else
+                        {
+                            Console.WriteLine("City not found");
+                        }
+                        break;
+
+                    case 11:
+                        Console.WriteLine("Enter state");
+                        if (stateDictionary.ContainsKey(city))
+                        {
+                            Console.WriteLine(stateDictionary[city].Count);
+                        }
+                        else
+                        {
+                            Console.WriteLine("State not found");
+                        }
                         break;
 
 
