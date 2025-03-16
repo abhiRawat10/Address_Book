@@ -5,7 +5,7 @@ A simple **Address Book System** built using **C# and .NET 6**, allowing users t
 ---
 
 ## Features added in this branch
- - check for duplicacy while adding the contacts to addressbook and overrided .equals method to compare two contacts.
+ - Search a person by city or state functionality added.
 
 - 
 ##  Technologies Used

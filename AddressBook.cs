@@ -7,7 +7,7 @@ namespace AddressBookSystem
 
     public class AddressBook
     {
-        List<Contact> Book;
+        public List<Contact> Book;
         public AddressBook()
         {
             this.Book = new List<Contact>();

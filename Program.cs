@@ -14,12 +14,15 @@ namespace AddressBookSystem
 
             while (true)
             {
+                Console.WriteLine("0. Exit");
                 Console.WriteLine("1. Add new Address Book");
                 Console.WriteLine("2. Add new Contact");
                 Console.WriteLine("3. Edit Contact");
                 Console.WriteLine("4. Delete Contact");
                 Console.WriteLine("5. Display Contacts");
-                Console.WriteLine("6. Exit");
+                Console.WriteLine("6. To Search in a particular city");
+                Console.WriteLine("7. To Search in a particular state");
+                
                 Console.WriteLine("Enter your choice");
                 int choice = Convert.ToInt32(Console.ReadLine());
                 switch (choice)
@@ -33,7 +36,7 @@ namespace AddressBookSystem
 
                     case 2:
                         DisplayAllAddressBooks();
-                        Console.WriteLine("Enter the name of the address book :");
+                        Console.WriteLine("Enter the name of the address book in which you want to add  :");
                         string addressBookName = Console.ReadLine();
                         if (addressBook.ContainsKey(addressBookName))
                         {
@@ -91,8 +94,58 @@ namespace AddressBookSystem
                         }
                         break;
 
-                    case 6:
+                    case 0:
                         return;
+
+                    case 6:
+                        {
+                        Console.WriteLine("Enter city");
+                        string city = Console.ReadLine();
+
+                        Console.WriteLine("Enter person firstname");
+                        string fn = Console.ReadLine();
+
+                        Console.WriteLine("Enter person lastname");
+                        string ln = Console.ReadLine();
+
+                        foreach(var kp in addressBook)
+                        {
+                            foreach(var contact in kp.Value.Book)
+                            {
+                                if (contact.City == city && contact.FirstName == fn &&         contact.LastName == ln)
+                                {
+                                    Console.WriteLine(contact);
+                                }
+                            }
+                        }
+                            break;
+                        }
+
+
+                    case 7:
+                        {
+                            Console.WriteLine("Enter state");
+                            string st = Console.ReadLine();
+
+                            Console.WriteLine("Enter firstname");
+                            string fn = Console.ReadLine();
+
+                            Console.WriteLine("Enter lastname");
+                            string ln = Console.ReadLine();
+
+                            foreach (var kp in addressBook)
+                            {
+                                foreach (var contact in kp.Value.Book)
+                                {
+                                    if (contact.State == st && contact.FirstName == fn      && contact.LastName == ln)
+                                    {
+                                        Console.WriteLine(contact);
+                                    }
+                                }
+                            }
+
+                            break;
+                        }
 
                     default:
                         Console.WriteLine("Invalid choice");

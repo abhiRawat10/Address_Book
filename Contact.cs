@@ -41,6 +41,11 @@ namespace AddressBookSystem
         {
             return HashCode.Combine(FirstName.ToLower(), LastName.ToLower());
         }
+
+        public override string ToString()
+        {
+            return $"First Name: {FirstName}, Last Name: {LastName}, Address: {Address}, City: {City}, State: {State}, Zip: {Zip}, Phone: {Phone}, Email: {Email}";
+        }   
     }
 
 }
